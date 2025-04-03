@@ -1,0 +1,10 @@
+{
+  "name": "11_ecommerce_web",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "vite": "^6.2.4"
+  }
+}

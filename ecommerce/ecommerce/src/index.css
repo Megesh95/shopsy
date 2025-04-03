@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-300;
+  }
+
+  /* Improved dark mode */
+  html.dark body {
+    @apply bg-[#0f172a] text-[#e2e8f0]; /* Deep navy + Soft white */
+  }
+}
+
+/* Global transition for smooth effect */
+*, *::before, *::after {
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+/* Dark mode styles */
+.dark {
+  --bg-dark-primary: #0f172a; /* Deep navy */
+  --bg-dark-secondary: #1e293b; /* Darker blue */
+  --text-dark-primary: #e2e8f0; /* Soft white */
+  --text-dark-secondary: #94a3b8; /* Muted blue-gray */
+  --text-dark-accent: #cbd5e1; /* Light blue */
+  --border-dark-primary: #334155; /* Slate blue */
+  --border-dark-secondary: #475569; /* Soft gray-blue */
+}
+
+/* Backgrounds */
+.dark .bg-white {
+  background-color: var(--bg-dark-primary);
+}
+
+.dark .dark\:bg-dark-secondary {
+  background-color: var(--bg-dark-secondary);
+}
+
+/* Text Colors */
+.dark .text-gray-900 {
+  color: var(--text-dark-primary);
+}
+
+.dark .dark\:text-muted {
+  color: var(--text-dark-secondary);
+}
+
+.dark .dark\:text-accent {
+  color: var(--text-dark-accent);
+}
+
+/* Borders */
+.dark .dark\:border-primary {
+  border-color: var(--border-dark-primary);
+}
+
+.dark .dark\:border-secondary {
+  border-color: var(--border-dark-secondary);
+}
+
+/* Product Card Fix */
+.dark .bg-white.dark\:bg-dark-secondary {
+  @apply bg-[#1e293b] text-[#e2e8f0]; /* Consistent background */
+}
+
+/* Dark Mode Toggle Glow */
+.dark-mode-toggle img {
+  filter: drop-shadow(0 0 4px rgba(173, 216, 230, 0.5)); /* Light blue glow */
+}
+
+/* Slide-in Animation */
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
